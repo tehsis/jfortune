@@ -1,0 +1,8 @@
+{
+  "name": "jFortune",
+  "version": "1.0.0",
+  "main": "jquery.jfortune.js",
+  "ignore": [
+    "**/.*",
+  ]
+}
