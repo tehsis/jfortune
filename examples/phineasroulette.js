@@ -30,9 +30,9 @@ var $r = $('.roulette').roulette(prices);
 var clickHandler = function() {
   $('.spinner').off('click');
   $('.spinner span').hide();
-  var price = Math.floor((Math.random() * 8));
-  $r.spin(price).done(function() {
-      $('.price').text('You have: ' + prices[price].name);
+  //var price = Math.floor((Math.random() * 8));
+  $r.spin().done(function(price) {
+      $('.price').text('You have: ' + price.name);
       $('.spinner').on('click', clickHandler);
       $('.spinner span').show();
     });
