@@ -1,10 +1,11 @@
 (function($) {
-  $.fn.roulette = function(prices, options) {
+  $.fn.roulette = function(prices) {
     var roulette = this;
     var prices_amount = prices.length || prices;
     var prices_delta = 360 / prices_amount;
  
     roulette.spin = function(price) {
+      price = price || Math.floor((Math.random() * prices_amount));
       var deferred = $.Deferred();
       var position = price * prices_delta;
       var spins = Math.floor((Math.random()*5)+10);
