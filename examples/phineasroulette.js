@@ -1,31 +1,34 @@
-var prices = [
-  {
-    name: 'Candance'
-  },
-  {
+var options = {
+  prices: [
+    {
+      name: 'Candance'
+    },
+    {
       name: 'Pherb'
     },
-  {
+    {
       name: 'Perry'
     },
-  {
+    {
       name: 'Isabella'
     },
-  {
+    {
       name: 'Tree'
     },
-  {
+    {
       name: 'Mom'
     },
-  {
+    {
       name: 'Dad'
     },
-  {
+    {
       name: 'Friends'
     }
-];
+  ],
+  duration: 7
+};
 
-var $r = $('.roulette').roulette(prices);
+var $r = $('.roulette').roulette(options);
 
 var clickHandler = function() {
   $('.spinner').off('click');
