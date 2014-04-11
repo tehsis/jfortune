@@ -7,13 +7,15 @@
     var prices_amount = prices.length || prices;
     var prices_delta = 360 / prices_amount;
     var is_spinning = false;
+    var min_random_spins = options.min_random_spins || 10;
+    var max_random_spins = options.max_random_spins || 15;
     var onSpinBounce = options.onSpinBounce || function() {};
  
     roulette.spin = function(price) {
       price = price || Math.floor(Math.random() * prices_amount);
       var deferred = $.Deferred();
       var position = Math.floor(prices_delta * (price - 1/2) + randomBetween(separation, prices_delta - separation));
-      var spins = randomBetween(10, 15);
+      var spins = randomBetween(min_random_spins, max_random_spins);
       var final_position = 360 * spins + position;
       var prev_position = 0;
       var is_bouncing = false;
