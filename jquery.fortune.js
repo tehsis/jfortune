@@ -1,6 +1,7 @@
 (function($) {
-  $.fn.roulette = function(options) {
-    var roulette = this;
+  $.fn.fortune = function(options) {
+
+    var fortune = this;
     var prices = options.prices || 8;
     var duration = options.duration || 7;
     var separation = options.separation || 2;
@@ -11,7 +12,7 @@
     var max_random_spins = options.max_random_spins || 15;
     var onSpinBounce = options.onSpinBounce || function() {};
  
-    roulette.spin = function(price) {
+    fortune.spin = function(price) {
       price = price || Math.floor(Math.random() * prices_amount);
       var deferred = $.Deferred();
       var position = Math.floor(prices_delta * (price - 1/2) + randomBetween(separation, prices_delta - separation));
@@ -22,7 +23,7 @@
 
       is_spinning = true;
 
-      roulette
+      fortune
         .css({
           "transform": "rotate(" + final_position + "deg)",
           "-webkit-transform": "rotate(" + final_position + "deg)",
@@ -33,7 +34,7 @@
 
 
       var bounceSpin = function() {
-        var curPosition = Math.floor(getRotationDegrees(roulette)),
+        var curPosition = Math.floor(getRotationDegrees(fortune)),
             mod = Math.floor((curPosition + prices_delta*0.5) % prices_delta),
             diff_position,
             position_threshold = prices_delta/5,
@@ -45,12 +46,12 @@
         if ((mod < position_threshold && diff_position < distance_threshold) ||
             (mod < position_threshold*3 && diff_position >= distance_threshold)) {
           if (!is_bouncing) {
-            roulette.siblings('.spin').addClass('bounce');
-            onSpinBounce(roulette.siblings('.spin'));
+            fortune.siblings('.spin').addClass('bounce');
+            onSpinBounce(fortune.siblings('.spin'));
             is_bouncing = true;
           }
         } else {
-          roulette.siblings('.spin').removeClass('bounce');
+          fortune.siblings('.spin').removeClass('bounce');
           is_bouncing = false;
         }
 
@@ -63,7 +64,7 @@
       var animSpin = requestAnimationFrame(bounceSpin);
 
       setTimeout(function() {
-        roulette
+        fortune
           .css({
             "transform": "rotate(" + position + "deg)",
             "-webkit-transform": "rotate(" + position + "deg)",
@@ -108,6 +109,6 @@
       return Math.floor(Math.random() * (max - min + 1)) + min;
     };
   
-    return roulette;
+    return fortune;
   };
 }) (jQuery);

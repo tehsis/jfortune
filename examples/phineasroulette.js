@@ -28,7 +28,7 @@ var options = {
   duration: 7
 };
 
-var $r = $('.roulette').roulette(options);
+var $r = $('.roulette').fortune(options);
 
 var clickHandler = function() {
   $('.spinner').off('click');

@@ -4,5 +4,8 @@
   "main": "jquery.jfortune.js",
   "ignore": [
     "**/.*"
-  ]
+  ],
+  "devDependencies": {
+    "qunit": "~1.14.0"
+  }
 }
