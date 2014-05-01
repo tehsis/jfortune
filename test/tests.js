@@ -60,9 +60,9 @@ asyncTest("Roulette spining", function() {
   $roulette.spin(3).done(function(price) {
     ok(price.name === 'Isabella', "The roulette has been spinned to a fixed price.")
   });
-})
+});
 
-module("Roulette without configuration", {
+module("Roulette without configuration specifying number of elements", {
   setup: function() {
     $roulette = $('<div>');
 
@@ -88,5 +88,4 @@ asyncTest("Roulette spining", function() {
   $roulette.spin(3).done(function(price) {
     ok(price === 3, "The roulette has been spinned to a fixed price.")
   });
-})
-
+});
