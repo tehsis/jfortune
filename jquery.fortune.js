@@ -8,8 +8,8 @@
     var prices_amount = prices.length || prices;
     var prices_delta = 360 / prices_amount;
     var is_spinning = false;
-    var min_random_spins = options.min_random_spins || 10;
-    var max_random_spins = options.max_random_spins || 15;
+    var min_random_spins = options.min_spins || 10;
+    var max_random_spins = options.max_spins || 15;
     var onSpinBounce = options.onSpinBounce || function() {};
  
     fortune.spin = function(price) {
