@@ -41,12 +41,12 @@ module("Roulette fully configured", {
     });
   },
   teardown: function() {
-    $roulette.remove();
+    $roulette = null;
   }
 });
 
 test("Roulette initialization", function() {
-  ok(typeof $roulette.spin === "function", "Roulette initialized.");  
+  strictEqual(typeof $roulette.spin, "function", "Roulette initialized.");  
 });
 
 asyncTest("Roulette spining", function() {
@@ -54,11 +54,12 @@ asyncTest("Roulette spining", function() {
 
   $roulette.spin().done(function(price) {
     start();
-    ok(price.name !== undefined, "The roulette has been spinned to a random price.")
+    notStrictEqual(price.name, undefined, "The roulette has been spinned to a random price.")
   });
 
-  $roulette.spin(3).done(function(price) {
-    ok(price.name === 'Isabella', "The roulette has been spinned to a fixed price.")
+  var fixed_price = Math.floor(Math.random()*test_prices.length);
+  $roulette.spin(fixed_price).done(function(price) {
+    strictEqual(price.name, test_prices[fixed_price].name, "The roulette has been spinned to a fixed price.")
   });
 });
 
@@ -69,23 +70,54 @@ module("Roulette without configuration specifying number of elements", {
     $roulette.fortune(24);
   },
   teardown: function() {
-    $roulette.remove();
+    $roulette = null;
   }
 });
 
 test("Roulette initialization", function() {
-  ok(typeof $roulette.spin === "function", "Roulette initialized.");  
+  strictEqual(typeof $roulette.spin, "function", "Roulette initialized.");  
 });
 
 asyncTest("Roulette spining", function() {
   expect(2);
 
   $roulette.spin().done(function(price) {
-    ok(typeof price === "number", "The roulette has been spinned to a random price.")
+    strictEqual(typeof price, "number", "The roulette has been spinned to a random price.")
     start();
   });
 
+  var fixed_price = Math.floor(Math.random()*24);
   $roulette.spin(3).done(function(price) {
-    ok(price === 3, "The roulette has been spinned to a fixed price.")
+    strictEqual(price, 3, "The roulette has been spinned to a fixed price.")
   });
 });
+
+module("Roulette without configuration specifying array of prices", {
+  setup: function() {
+    $roulette = $('<div>');
+
+    $roulette.fortune(test_prices);
+  },
+  teardown: function() {
+    $roulette = null;
+  }
+});
+
+test("Roulette initialization", function() {
+  strictEqual(typeof $roulette.spin, "function", "Roulette initialized.");  
+});
+
+asyncTest("Roulette spining", function() {
+  expect(2);
+
+  $roulette.spin().done(function(price) {
+    start();
+    notStrictEqual(price.name, undefined, "The roulette has been spinned to a random price.")
+  });
+
+  var fixed_price = Math.floor(Math.random()*test_prices.length);
+  $roulette.spin(fixed_price).done(function(price) {
+    strictEqual(price.name, test_prices[fixed_price].name, "The roulette has been spinned to a fixed price.")
+  });
+});
+

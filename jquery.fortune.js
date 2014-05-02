@@ -2,10 +2,10 @@
   $.fn.fortune = function(options) {
 
     var fortune = this;
-    var prices = options.prices || 8;
-    var duration = options.duration || 7;
+    var prices = options.prices?options.prices:options;
+    var duration = options.duration || 1;
     var separation = options.separation || 2;
-    var prices_amount = prices.length || prices;
+    var prices_amount = Array.isArray(prices)?prices.length:prices;
     var prices_delta = 360 / prices_amount;
     var is_spinning = false;
     var min_random_spins = options.min_spins || 10;
@@ -13,7 +13,7 @@
     var onSpinBounce = options.onSpinBounce || function() {};
  
     fortune.spin = function(price) {
-      price = price || Math.floor(Math.random() * prices_amount);
+      price = typeof price === "number"?price:Math.floor(Math.random() * prices_amount);
       var deferred = $.Deferred();
       var position = Math.floor(prices_delta * (price - 1/2) + randomBetween(separation, prices_delta - separation));
       var spins = randomBetween(min_random_spins, max_random_spins);
