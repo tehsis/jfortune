@@ -34,8 +34,8 @@
       .css({
         "transform": "rotate(" + final_position + "deg)",
         "-webkit-transform": "rotate(" + final_position + "deg)",
-        "transition": "transform " + options.duration + "s cubic-bezier(.17,.67,.12,.99)",
-        "-webkit-transition": "-webkit-transform " + options.duration + "s cubic-bezier(.17,.67,.12,.99)"
+        "transition": "transform " + options.duration + "ms cubic-bezier(.17,.67,.12,.99)",
+        "-webkit-transition": "-webkit-transform " + options.duration + "ms cubic-bezier(.17,.67,.12,.99)"
       })
       .siblings('.spin').removeClass('bounce');
 
