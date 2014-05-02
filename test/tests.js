@@ -30,10 +30,10 @@ var $roulette;
 
 module("Roulette fully configured", {
   setup: function() {
-    $roulette = $('<div>');
+    $roulette = $('.roulette');
     $roulette.fortune({
       prices: test_prices,
-      duration: 0.5,
+      duration: 2000,
       separation: 2,
       min_spins: 10,
       max_spins: 15,
@@ -65,9 +65,9 @@ asyncTest("Roulette spining", function() {
 
 module("Roulette without configuration specifying number of elements", {
   setup: function() {
-    $roulette = $('<div>');
+    $roulette = $('.roulette');
 
-    $roulette.fortune(24);
+    $roulette.fortune(8);
   },
   teardown: function() {
     $roulette = null;
@@ -94,7 +94,7 @@ asyncTest("Roulette spining", function() {
 
 module("Roulette without configuration specifying array of prices", {
   setup: function() {
-    $roulette = $('<div>');
+    $roulette = $('.roulette');
 
     $roulette.fortune(test_prices);
   },
