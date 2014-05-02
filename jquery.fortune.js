@@ -95,8 +95,7 @@
         obj.css("-o-transform")      ||
         obj.css("transform");
       if (matrix !== 'none') {
-        var angle,
-        values = matrix.split('(')[1].split(')')[0].split(','),
+        var values = matrix.split('(')[1].split(')')[0].split(','),
         a = values[0],
         b = values[1],
         radians = Math.atan2(b, a);
