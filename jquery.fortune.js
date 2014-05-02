@@ -7,7 +7,7 @@
 
     var options = $.extend({}, {
       prices: args,
-      duration: 1,
+      duration: 1000,
       separation: 2,
       min_spins: 10,
       max_spins: 15,
