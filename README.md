@@ -21,7 +21,7 @@ Usage
 // You can initialize the roulette by specifying the number of elements
 $(selector).roulette(numberOfElements);
 
-// Or by passing an array of elements like [{description: "1000 u$s"}, {description: "200 u$s} ...].
+// Or by passing an array of elements like [{description: "1000 u$s"}, {description: "200 u$s}].
 $(selector).roulette(arrayOfElements);
 
 // After initialization you can spin the wheel and it will turn to a random
@@ -37,10 +37,10 @@ $(selector).spin().then(function(price) {
   console.log(price.description);
 });
 
-// or
+// or you can specify a fixed price
 
-$(selector).spin(0).spin().then(function(price) {
-  console.log(price.description);
+$(selector).spin(1).spin().then(function(price) {
+  console.log(price.description); // "200 u$s"
 });
 ```
 
