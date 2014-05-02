@@ -19,10 +19,22 @@ Usage
 
 ```javascript
 // You can initialize the roulette by specifying the number of elements
-$(selector).roulette(numberOfElements);
+$(selector).roulette(8);
 
-// Or by passing an array of elements like [{description: "1000 u$s"}, {description: "200 u$s}].
-$(selector).roulette(arrayOfElements);
+// Or by passing an array of elements
+$(selector).roulette([{description: "1000 u$s"}, {description: "200 u$s}]);
+
+// Or you can fully configurate the roulette behaviour
+$(selector).roulette({
+  prices: [{description: "1000 u$s"}, {description: "200 u$s}],
+  duration: 3000, // The amount of milliseconds the roulette to spin
+  separation: 2, // The separation between each roulette price
+  min_spins: 10, // The minimum number of spins 
+  max_spins: 15, // The maximum number of spins
+  onSpinBounce: function() {
+    Sounds.play('taka');
+  } // A callback to be called each time the roulette hits a price bound.
+})
 
 // After initialization you can spin the wheel and it will turn to a random
 // position.
@@ -38,7 +50,6 @@ $(selector).spin().then(function(price) {
 });
 
 // or you can specify a fixed price
-
 $(selector).spin(1).spin().then(function(price) {
   console.log(price.description); // "200 u$s"
 });
