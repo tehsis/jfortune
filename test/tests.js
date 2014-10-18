@@ -121,3 +121,9 @@ asyncTest("Roulette spining", function() {
   });
 });
 
+module("Roulette with no arguments")
+test("It should throw an error", function() {
+  throws(function() {
+    $('.roulette').fortune();
+  }, "You need to specify at least one argument");
+});

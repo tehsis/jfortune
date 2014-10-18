@@ -1,5 +1,5 @@
 (function($) {
-  $.fn.fortune = function(args) {
+   var $fortune = function(args) {
 
     if (args === undefined) {
       throw(new Error("You must define the options.prices"));
@@ -116,4 +116,8 @@
 
     return fortune;
   };
+
+  $.extend($.fn, {
+    fortune: $fortune
+  });
 }) (jQuery);

@@ -1,0 +1,33 @@
+{
+  "name": "jfortune",
+  "version": "1.0.0",
+  "description": "A wheel of fortune plugin for jquery.",
+  "main": "jquery.fortune.js",
+  "directories": {
+    "example": "examples",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "./node_modules/grunt-cli/bin/grunt test",
+    "prepublish": "./node_modules/bower/bin/bower install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tehsis/jfortune.git"
+  },
+  "keywords": [
+    "jquery",
+    "plugins"
+  ],
+  "author": "tehsis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tehsis/jfortune/issues"
+  },
+  "homepage": "https://github.com/tehsis/jfortune",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-qunit": "^0.5.2"
+  }
+}
