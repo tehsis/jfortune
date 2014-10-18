@@ -1,4 +1,4 @@
-jfortune !(travis)[https://travis-ci.org/tehsis/jfortune.svg]
+jfortune ![travis](https://travis-ci.org/tehsis/jfortune.svg)
 ========
 
 A jquery plugin to make wheel of fortunes (roulettes)
