@@ -22,7 +22,7 @@ Usage
 $(selector).roulette(8);
 
 // Or by passing an array of elements
-$(selector).roulette([{description: "1000 u$s"}, {description: "200 u$s}]);
+$(selector).roulette([{description: "1000 u$s"}, {description: "200 u$s"}]);
 
 // Or you can fully configurate the roulette behaviour
 $(selector).roulette({
