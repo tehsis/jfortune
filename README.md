@@ -26,7 +26,7 @@ $(selector).roulette([{description: '1000 u$s'}, {description: '200 u$s'}]);
 
 // Or you can fully configurate the roulette behaviour
 $(selector).roulette({
-  prices: [{description: "1000 u$s"}, {description: "200 u$s}],
+  prices: [{description: "1000 u$s"}, {description: "200 u$s"}],
   duration: 3000, // The amount of milliseconds the roulette to spin
   separation: 2, // The separation between each roulette price
   min_spins: 10, // The minimum number of spins 
