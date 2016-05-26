@@ -6,6 +6,7 @@ A jquery plugin to make wheel of fortunes (roulettes)
 Working examples: 
 - http://codepen.io/tehsis/pen/AFCwz
 - http://codepen.io/tehsis/pen/zilBg
+- http://codepen.io/asleepypenguin/pen/bebZBj // Counter clockwise and divided wedges
 
 
 Description
