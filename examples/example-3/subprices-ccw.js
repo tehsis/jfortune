@@ -30,7 +30,7 @@ var options = {
         }
         ]
   ],
-  duration: 7,
+  duration: 2000,
   clockWise: false
 };
 

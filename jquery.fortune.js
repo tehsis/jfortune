@@ -30,7 +30,7 @@
       price = typeof price === "number"?price:Math.floor(Math.random() * prices_amount);
       var deferred = $.Deferred();
       var position = Math.floor(prices_delta * (price - 1/2) + randomBetween(separation, prices_delta - separation));
-      if ( typeof price !== "number" && undefined !== prices[price].length ) {
+      if ( price < prices.length && undefined !== prices[price].length ) {
           sub_amount = prices[price].length;
           sub_price = Math.floor(Math.random() * sub_amount);
           position = Math.floor(prices_delta * (price - 1/2) + (prices_delta/sub_amount) * sub_price + randomBetween(separation, prices_delta/sub_amount - separation));  
