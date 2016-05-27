@@ -3,7 +3,7 @@
 
     var fortune = this;
     var prices = options.prices?options.prices:options;
-    var duration = options.duration || 1;
+    var duration = options.duration || 1000;
     var separation = options.separation || 2;
     var prices_amount = Array.isArray(prices)?prices.length:prices;
     var prices_delta = 360 / prices_amount;
@@ -30,7 +30,7 @@
       price = typeof price === "number"?price:Math.floor(Math.random() * prices_amount);
       var deferred = $.Deferred();
       var position = Math.floor(prices_delta * (price - 1/2) + randomBetween(separation, prices_delta - separation));
-      if ( undefined !== prices[price].length ) {
+      if ( typeof price !== "number" && undefined !== prices[price].length ) {
           sub_amount = prices[price].length;
           sub_price = Math.floor(Math.random() * sub_amount);
           position = Math.floor(prices_delta * (price - 1/2) + (prices_delta/sub_amount) * sub_price + randomBetween(separation, prices_delta/sub_amount - separation));  
@@ -46,8 +46,8 @@
         .css({
           "transform": "rotate(" + final_position + "deg)",
           "-webkit-transform": "rotate(" + final_position + "deg)",
-          "transition": "transform " + duration + "s cubic-bezier(.17,.67,.12,.99)",
-          "-webkit-transition": "-webkit-transform " + duration + "s cubic-bezier(.17,.67,.12,.99)"
+          "transition": "transform " + duration + "ms cubic-bezier(.17,.67,.12,.99)",
+          "-webkit-transition": "-webkit-transform " + duration + "ms cubic-bezier(.17,.67,.12,.99)"
         })
         .siblings('.spin').removeClass('bounce');
 
@@ -98,7 +98,7 @@
         }
         deferred.resolve(result);
         is_spinning = false;
-      }, duration*1000);
+      }, duration);
        
       return deferred.promise();
     };
