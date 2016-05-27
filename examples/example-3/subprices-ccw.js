@@ -22,13 +22,13 @@ var options = {
       name: 'Dad'
     },
     [
-    {
-      name: 'Buford'
-    },
-    {
-      name: 'Baljeet'
-    }
-    ]
+        {
+          name: 'Buford'
+        },
+        {
+          name: 'Baljeet'
+        }
+        ]
   ],
   duration: 7,
   clockWise: false
