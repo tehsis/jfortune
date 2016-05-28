@@ -6,6 +6,7 @@ A jquery plugin to make wheel of fortunes (roulettes)
 Working examples: 
 - http://codepen.io/tehsis/pen/AFCwz
 - http://codepen.io/tehsis/pen/zilBg
+- http://codepen.io/asleepypenguin/pen/bebZBj // Counter clockwise and divided wedges
 
 
 Description
@@ -24,6 +25,13 @@ $(selector).roulette(8);
 // Or by passing an array of elements
 $(selector).roulette([{description: '1000 u$s'}, {description: '200 u$s'}]);
 
+// Array elements can also be arrays of elements to allow for split wedges
+$(selector).roulette([
+    {description: '1000 u$s'}, 
+    {description: '200 u$s'},
+    [{description: '100 u$s'},{description: '5000 u$s'},{description: '100 u$s'}]
+    ]);
+
 // Or you can fully configurate the roulette behaviour
 $(selector).roulette({
   prices: [{description: "1000 u$s"}, {description: "200 u$s"}],
@@ -31,6 +39,7 @@ $(selector).roulette({
   separation: 2, // The separation between each roulette price
   min_spins: 10, // The minimum number of spins 
   max_spins: 15, // The maximum number of spins
+  clockWise: true // The direction the wheel will spin
   onSpinBounce: function() {
     Sounds.play('taka');
   } // A callback to be called each time the roulette hits a price bound.
