@@ -39,7 +39,7 @@ $(selector).roulette({
   separation: 2, // The separation between each roulette price
   min_spins: 10, // The minimum number of spins 
   max_spins: 15, // The maximum number of spins
-  clockWise: true // The direction the wheel will spin
+  clockWise: true, // The direction the wheel will spin
   onSpinBounce: function() {
     Sounds.play('taka');
   } // A callback to be called each time the roulette hits a price bound.
