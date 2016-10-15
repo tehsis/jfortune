@@ -4,8 +4,8 @@
     var fortune = this;
     var prices = options.prices?options.prices:options;
     var duration = options.duration || 1000;
-    var separation = options.separation || 2;
-    var prices_amount = Array.isArray(prices)?prices.length:prices;
+    var separation = options.separation || 0;
+    var prices_amount = Array.isArray(prices) ? prices.length : prices;
     var prices_delta = 360 / prices_amount;
     var is_spinning = false;
     var min_random_spins = options.min_spins || 10;
